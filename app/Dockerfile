@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 WORKDIR /app
 
 # Copy the script into the container
-COPY capture_image.py .
+COPY /home/abhishek/rpicamera/capture_image.py .
 
 # Command to execute when the container starts
 CMD ["python", "./capture_image.py"]
