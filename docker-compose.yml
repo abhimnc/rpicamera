@@ -1,0 +1,10 @@
+version: '2.4'
+services:
+  camera-app:
+    build: ./app
+    privileged: true
+    restart: always
+    volumes:
+      - 'camera-data:/data'
+volumes:
+  camera-data:
