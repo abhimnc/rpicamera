@@ -1,10 +1,15 @@
-version: '2.4'
-services:
-  camera-app:
-    build: ./app
-    privileged: true
-    restart: always
-    volumes:
-      - 'camera-data:/data'
+version: '2'
+
 volumes:
-  camera-data:
+   my-persistent-storage:
+
+services:
+  camera-capture:
+    build: ./app
+    devices:
+      - "/dev/video0:/dev/video0"
+    restart: always
+    privileged: true
+    user: root
+    volumes:
+      -  my-persistent-storage:/app/output
